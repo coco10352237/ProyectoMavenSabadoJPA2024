@@ -71,6 +71,10 @@ public class ControladorCliente extends HttpServlet {
 		cliente.setNacionalidad(nacionalidad);
 		//invocamos la metodo registrar...
 		crud.RegistrarCliente(cliente);
+		//actualizador listado de clientes
+		List<TblCliente> listadocliente=crud.ListadoCliente();
+		//invocamos el listado  de productos para la vista
+		request.setAttribute("listadodeproductos",listadocliente);
 		//redireccionamos
 		request.getRequestDispatcher("/ListadoClientes.jsp").forward(request, response);
 		
